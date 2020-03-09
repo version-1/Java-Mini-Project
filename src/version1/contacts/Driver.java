@@ -22,11 +22,22 @@ public class Driver {
   }
 
   public static void showMenu() {
-    System.out.println("+=== Contact App ===+");
+    String header = "+===   Contact App   ===+";
+    System.out.println(header);
     for (int i = 0; i < options.length; i++) {
-      System.out.println("| " + Integer.toString(i + 1) + ". " + options[i].getLabel() + " |");
+      String str = "| " + Integer.toString(i + 1) + ". " + options[i].getLabel();
+      int paddingSize = header.length() - str.length() - " |".length();
+      for (int j = paddingSize; j > 0; j--) {
+        str += " ";
+      }
+      System.out.println(str + " |");
     };
-    System.out.println("+===================+");
+
+    System.out.print("+");
+    for (int i = 0; i< header.length() - 2; i++) {
+      System.out.print("=");
+    }
+    System.out.println("+");
   }
 
   private static int askOption() {

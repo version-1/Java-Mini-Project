@@ -12,14 +12,16 @@ public class Remove extends Option {
 
   @Override
   public ContactList run () {
-    if (this.getContactList().size() == 0) {
-      return this.getContactList();
+    ContactList list = this.getContactList();
+    if (list.size() == 0) {
+      return list;
     }
-    this.getContactList().printList();
-    int index = this.getContactList().askIndex();
-    String error = this.getContactList().removeContact(index);
-    if (error.length() > 0) {
-      System.out.println(error);
+    list.printList();
+    int index = list.askIndex();
+    if(list.find(index) != null) {
+      list.removeContact(index);
+    } else {
+      System.out.println("Not Found. The index doesn't exist.");
     }
     return this.getContactList();
   }

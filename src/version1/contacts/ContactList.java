@@ -9,6 +9,13 @@ public class ContactList {
     this.list = list;
   }
 
+  public Contact find(int index) {
+    if(index < 0 || this.list.size() <= index) {
+      return null;
+    }
+    return this.list.get(index);
+  }
+
   public int size() {
     return this.list.size();
   }
@@ -19,31 +26,19 @@ public class ContactList {
     }
   }
 
-  public String addContact(Contact contact) {
-    if (hasDuplicated(contact)) {
-      return "Contact is Already Exist";
-    }
+  public void addContact(Contact contact) {
     this.list.add(contact);
-    return "";
   }
 
-  public String removeContact(int index) {
-    if (index >= list.size()) {
-      return "Not Found.The index doesn't exist.";
-    }
+  public void removeContact(int index) {
     this.list.remove(index);
-    return "";
   }
 
-  public String updateContact(int index, Contact contact) {
-    if (index <= 0 || index >= list.size()) {
-      return "Not Found.The index doesn't exist.";
-    }
+  public void updateContact(int index, Contact contact) {
     this.list.set(index, contact);
-    return "";
   }
 
-  private boolean hasDuplicated(Contact contact) {
+  public boolean exists(Contact contact) {
     for (Contact item: list) {
       if (item.equals(contact)) {
         return true;

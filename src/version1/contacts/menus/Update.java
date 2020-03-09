@@ -17,9 +17,10 @@ public class Update extends Option {
     }
     this.getContactList().printList();
     int index = this.getContactList().askIndex();
-    String error = this.getContactList().updateContact(index, new Contact());
-    if (error.length() > 0) {
-      System.out.println(error);
+    if(this.getContactList().find(index) != null) {
+      this.getContactList().updateContact(index, new Contact());
+    } else {
+      System.out.println("Not Found. The index doesn't exist.");
     }
     return this.getContactList();
   }

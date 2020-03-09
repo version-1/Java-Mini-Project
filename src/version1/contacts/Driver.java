@@ -8,11 +8,8 @@ public class Driver {
   private static Option[] options = new Option[] { new Index(), new Add(), new Remove(), new Update(), new Quit() };
   public static void main(String[] args) {
     ContactList list = new ContactList(new ArrayList<Contact>());
-    while (true) {
+    while (list != null) {
       list = run(list);
-      if (list == null) {
-        return;
-      }
     }
   }
 

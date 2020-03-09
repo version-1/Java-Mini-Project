@@ -3,7 +3,7 @@ package version1.contacts.menus;
 import version1.contacts.*;
 
 public class Quit extends Option {
-  private String label = "Update Contact";
+  private String label = "Quit Contact";
 
   @Override
   public String getLabel() {
@@ -11,8 +11,8 @@ public class Quit extends Option {
   }
 
   @Override
-  public ContactList run () {
+  public ContactList run() {
+    System.out.println("Bye!");
     return null;
   }
-
 }

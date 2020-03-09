@@ -12,6 +12,9 @@ public class Update extends Option {
 
   @Override
   public ContactList run () {
+    if (this.getContactList().size() == 0) {
+      return this.getContactList();
+    }
     this.getContactList().printList();
     int index = this.getContactList().askIndex();
     this.getContactList().updateContact(index, new Contact());

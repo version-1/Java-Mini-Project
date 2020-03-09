@@ -51,7 +51,7 @@ public class ContactList {
   public int askIndex() {
     int num = -1;
     while (num <= 0) {
-      String input = InputCollector.getUserInput("Enter Your Option:");
+      String input = InputCollector.getUserInput("Enter Your Index:");
       num = Integer.parseInt(input);
       int listSize = this.list.size();
       if (num <= 0 || num >= listSize) {

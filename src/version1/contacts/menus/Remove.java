@@ -12,6 +12,9 @@ public class Remove extends Option {
 
   @Override
   public ContactList run () {
+    if (this.getContactList().size() == 0) {
+      return this.getContactList();
+    }
     this.getContactList().printList();
     int index = askIndex();
     this.getContactList().removeContact(index);

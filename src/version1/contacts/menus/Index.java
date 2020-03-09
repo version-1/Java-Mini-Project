@@ -12,7 +12,9 @@ public class Index extends Option {
 
   @Override
   public ContactList run () {
+    System.out.println();
     this.getContactList().printList();
+    System.out.println();
     return this.getContactList();
   }
 

@@ -14,8 +14,8 @@ public class ContactList {
   }
 
   public void printList() {
-    for(Contact contact : this.list) {
-      System.out.println(contact.toString());
+    for ( int i = 0; i < size(); i++) {
+      System.out.println(i + ". " + this.list.get(i).toString());
     }
   }
 
@@ -35,8 +35,12 @@ public class ContactList {
     return "";
   }
 
-  public void updateContact(int index, Contact contact) {
+  public String updateContact(int index, Contact contact) {
+    if (index <= 0 || index >= list.size()) {
+      return "Not Found.The index doesn't exist.";
+    }
     this.list.set(index, contact);
+    return "";
   }
 
   private boolean hasDuplicated(Contact contact) {
@@ -49,15 +53,14 @@ public class ContactList {
   }
 
   public int askIndex() {
-    int num = -1;
-    while (num <= 0) {
-      String input = InputCollector.getUserInput("Enter Your Index:");
-      num = Integer.parseInt(input);
+    while (true) {
+      int num = InputCollector.getInputAsPositiveInt("Enter Your Index:");
       int listSize = this.list.size();
-      if (num <= 0 || num >= listSize) {
-        System.out.println("Invalid Input: Enter number between 1 " + "and " + listSize);
+      if (num < 0 || num > listSize) {
+        System.out.println("Invalid Input: Enter number between 0 " + "and " + Integer.toString(listSize - 1));
+      } else {
+        return num;
       }
     }
-    return num;
   }
 }

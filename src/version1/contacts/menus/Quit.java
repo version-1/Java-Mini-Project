@@ -3,7 +3,7 @@ package version1.contacts.menus;
 import version1.contacts.*;
 
 public class Quit extends Option {
-  private String label = "Quit Contact";
+  private String label = "Quit";
 
   @Override
   public String getLabel() {

@@ -27,13 +27,13 @@ public class Contact {
     str += "(";
     str += "mobile: " + mobile;
     if (this.work.length() > 0) {
-      str += "work: " + mobile;
+      str += " work: " + mobile;
     }
     if (this.home.length() > 0) {
-      str += "home: " + mobile;
+      str += " home: " + mobile;
     }
     if (this.city.length() > 0) {
-      str += "city: " + mobile;
+      str += " city: " + mobile;
     }
     str += ")";
     return str;

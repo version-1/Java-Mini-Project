@@ -13,7 +13,11 @@ public class Add extends Option {
   @Override
   public ContactList run () {
     Contact contact = new Contact();
-    this.getContactList().addContact(contact);
+    String error = this.getContactList().addContact(contact);
+    if (error.length() > 0) {
+      System.out.println(error);
+    }
+
     return this.getContactList();
   }
 

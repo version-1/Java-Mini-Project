@@ -16,21 +16,11 @@ public class Remove extends Option {
       return this.getContactList();
     }
     this.getContactList().printList();
-    int index = askIndex();
-    this.getContactList().removeContact(index);
-    return this.getContactList();
-  }
-
-  private int askIndex() {
-    int num = -1;
-    while (num <= 0) {
-      String input = InputCollector.getUserInput("Enter Your Option:");
-      num = Integer.parseInt(input);
-      int listSize = this.getContactList().size();
-      if (num <= 0 || num >= listSize) {
-        System.out.println("Invalid Input: Enter number between 1 " + "and " + listSize);
-      }
+    int index = this.getContactList().askIndex();
+    String error = this.getContactList().removeContact(index);
+    if (error.length() > 0) {
+      System.out.println(error);
     }
-    return num;
+    return this.getContactList();
   }
 }

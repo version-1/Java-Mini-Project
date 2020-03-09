@@ -34,13 +34,7 @@ public class Driver {
 
   private static int askOption() {
     while (true) {
-      String input = InputCollector.getUserInput("Enter Your Option:");
-      int num = -1;
-      try {
-        num = Integer.parseInt(input);
-      } catch (NumberFormatException e) {
-        // do nothing
-      }
+      int num = InputCollector.getInputAsPositiveInt("Enter Your Index:");
       if (num <= 0 || num > options.length) {
         System.out.println("Invalid Input: Enter number between 1 " + "and " + options.length);
         num = -1;
